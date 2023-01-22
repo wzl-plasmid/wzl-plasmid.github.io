@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>简简单单搭个博客：基于Hexo和GitHub Pages | Plasmid&#39;s Blog</title>
+        <meta name="author" content="wzl-plasmid">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="https://avatars.githubusercontent.com/u/97417831?s=400&u=c152956cd924e17d3072f4ae4c80ba0374da8359&v=4">
+        <script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.min.js"></script>
+        <script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+        <canvas
+            id="background"
+            style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:-1"
+        ></canvas>
+        <script src="/js/background.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css">
+        
+        <script src="https://polyfill.io/v3/polyfill.min.js?features="></script>
+        
+        
+        <script src="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.css">
+        
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height: 100vh; width: 100vw; position: fixed; display: flex; z-index: 2147483647; justify-content: space-between; background: #fff; transition: all 0.3s ease-out; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none">
+    <div style="position: fixed; height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center">
+        <div id="loadcontent" style="width: 50vmin; height: 50vmin; padding: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: solid 10px #a3ddfb; text-align: center">
+            <div>
+                <h2>LOADING...</h2>
+                <p style="word-break: keep-all">加载过慢请开启缓存（浏览器默认开启）</p>
+                <div>
+                    <img alt="loading" src="/images/loading.gif" style="height: 50px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="layout">
+            <transition name="into">
+            <div v-show="showpage" style="display: -not-none">
+                <div id="menushow">
+                    <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Plasmid's Blog</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Plasmid's Blog</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                </div>
+                <div id="main">
+                    <div class="article">
+    <div>
+        <h1>简简单单搭个博客：基于Hexo和GitHub Pages </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/1/22
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                环境搭建
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Hexo/" style="color: #00bcd4">
+                    Hexo
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/GitHub-Pages/" style="color: #03a9f4">
+                    GitHub Pages
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <blockquote>
+<p>我们从那时起，便身处迷雾中，完全沦为电波的奴隶。</p>
+</blockquote>
+<p>除夕夜不想看春晚，趁着这个时间打了一个简单的博客，那么第一篇博客就来记录一下搭博客的过程吧。</p>
+<p>由于整个过程比较复杂但实在没啥技术含量，这篇文章只是<font color="#66CC99">汇总一下教程文档，记录一下踩坑过程</font>。</p>
+<p>这个博客创建的契机是一次我试图用知乎发一个用Markdown写好的教程，但碰巧我的<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/106057556">Zhihu on VSCode插件</a>寄了，完全登录不上去。而知乎网页端对于导入的Markdown代码支持也是依托答辩，很多样式只能依靠我手动添加，这让几乎每天都在用Markdown的我非常不爽。同时看到过不少同学搭建过自己的博客，上面也有很多高质量的内容（<del>帮我活过了概统考试</del>），于是我也开始想着自己搭一个博客出来。</p>
+<p>其实本人非常懒，不喜欢折腾。于是我对于博客搭建的要求就是<font color="#66CC99">能用就行</font>，不想自己搭服务器买域名之类的，图床也是直接用的GitHub。</p>
+<p>至于GitHub在大陆不稳定的问题🤔无所谓，我一直挂着Clash🤣</p>
+<h1 id="Step0-观前提示"><a href="#Step0-观前提示" class="headerlink" title="Step0: 观前提示"></a>Step0: 观前提示</h1><p>搭建博客看着工程量庞大，但网上已经有详细的文档教程，<font color="#66CC99">完全照着文档和教程跑下来</font>就好，我真的没碰上什么问题。</p>
+<p>唯一一个比较重要的技能可能是需要反复敲命令行，这里再次感叹一下<font color="#66CC99">熟练使用命令行和各种命令行风格工具</font>的重要性😢输入命令行需要终端，最简单的终端是命令提示符，可以在搜索框中搜索cmd或者在文件夹顶部地址栏输入cmd然后按回车，但我一般用Windows Terminal，VSCode集成的也不错。</p>
+<h1 id="Step1-安装Hexo"><a href="#Step1-安装Hexo" class="headerlink" title="Step1: 安装Hexo"></a>Step1: 安装Hexo</h1><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a>是一款快速、简洁、高效的博客框架，可以将Markdown文档非常高效地渲染成网页，也提供了各种风格的模板。看到过不少人在用Hexo，就决定是它了！</p>
+<p>本步骤其实只需要严格按照<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a>跑一遍下来就行了，就是事情稍微多了点（需要先安装Git和Node.js）</p>
+<ul>
+<li>安装<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git</a>。Git的安装请参考<a target="_blank" rel="noopener" href="http://t.csdn.cn/ryCfv">这篇文章</a>，Git的配置请参考<a target="_blank" rel="noopener" href="https://docs.github.com/en/get-started/quickstart/set-up-git">GitHub上的教程1</a>，SSH Key的配置请参考<a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">GitHub上的教程2</a>。此外强烈建议用clash买个节点然后<font color="#66CC99">给Git设置代理</font>，不然很可能连不上！</li>
+<li>安装<a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a>，建议选择LTS版本。Node.js的安装请参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105715224">这篇文章</a>。注意选择Add to PATH，此外中间有个“automatically install the necessary tools”选项，我点了之后帮我安装了很久的东西，还帮我装了Python3.11.0，直接挤掉了我在用的Python3.9.6，看网上似乎可以不选，所以还是建议不选。</li>
+<li>安装Hexo。按照Hexo的官方文档，只需要<code>npm install -g hexo-cli</code>，但我还是遇到了一些问题。首先是报错：<code>&#39;hexo&#39;</code> 不是内部或外部命令，也不是可运行的程序。此时需要手动设置一下环境变量，请参考<a target="_blank" rel="noopener" href="http://t.csdn.cn/JMhaM">这篇文章</a>。其次是报错：无法加载文件<code>hexo.ps1</code>，因为在此系统上禁止运行脚本。这是终端的问题（我用的Windows Terminal），需要在Windows设置里修改一下，请参考<a target="_blank" rel="noopener" href="http://t.csdn.cn/gej3u">这篇文章</a>。</li>
+</ul>
+<h1 id="Step2-挑选Hexo模板"><a href="#Step2-挑选Hexo模板" class="headerlink" title="Step2: 挑选Hexo模板"></a>Step2: 挑选Hexo模板</h1><p>要知道大多数人的博客看起来高大上只是因为使用的模板比较高大上（不会开发前端是这样的Orz）</p>
+<p>Hexo官方整理了很多<a target="_blank" rel="noopener" href="https://hexo.io/themes/">可用的模板</a>，但这上面的模板实在是太多了，很容易选择困难症。此外很多信息已经过时了，不少模板点开来发现网站已经404了。</p>
+<p>因此个人只推荐<font color="#66CC99">文档完善且近期在GitHub上有人维护的模板</font>。这是因为Hexo不仅包括对Hexo自身的“站点配置”，也包括对所用模板的“主题配置”。在主题配置中，不同模板之间差异较大，没有详细的文档或教程非常容易一头雾水。</p>
+<p>下面我来推荐几个这两天挑过的模板吧（有什么推荐的也欢迎在下方回复作为补充😘）</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT</a>是一款非常经典的模板，风格简约所以更强调文字，整个生态很完善，看到很多人在用诶。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/next-theme/theme-next-docs/v8.13.0/source/images/next-schemes.png" alt="NexT"></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">Fluid</a>是一款Material Design风格的模板，评价是很好看，网页本身支持侧边栏导航等，所以感觉功能也很完善。此外文档非常详细，配置文件各个参数讲得很清楚。与之风格类似的模板是<a target="_blank" rel="noopener" href="https://github.com/iblh/hexo-theme-material">Material</a>，但一直没人维护，故不再推荐。</li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/48b250de82787ee8090df0e3a3088e10d09a12b58fe1df55045f2476aca20978/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f666c7569642d6465762f737461746963406d61737465722f6865786f2d7468656d652d666c7569642f73637265656e73686f74732f696e6465782e706e67" alt="Fluid"></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ch1ny/kira-hexo/">kira</a>大概是这么多模板里最二次元的一个，文档看起来还行但不算太详细，就放上来骗骗二次元吧🤣（开发者似乎是山东大学的，现在大四，tql）</li>
+</ul>
+<p><img src="https://hexo.kira.host/assets/preview.d0ee2af1.png" alt="kira"></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX</a>支持很多花里胡哨的JS动效，同时也挺二次元的，文档在<a target="_blank" rel="noopener" href="https://argvchs.github.io/">作者的博客里</a>自己找，其实也很详细，有些问题可以在issues里找到答案。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wzl-plasmid/images/main/ParticleX.png" alt="ParticleX"></p>
+<p>我个人在用的就是ParticleX模板。主要的问题在于：加载页面需要等待，不支持侧边栏导航，只会在标点后换行，不支持访问人数统计，Markdown加粗效果不明显（不如用HTML标签调颜色）而且会导致行距问题等，但总体来讲我还是挺喜欢的（<del>因为比较二次元</del>）</p>
+<h1 id="Step3-部署模板和配置"><a href="#Step3-部署模板和配置" class="headerlink" title="Step3: 部署模板和配置"></a>Step3: 部署模板和配置</h1><p>这个建议自行参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">Hexo官方文档</a>和各种模板自带的文档，具体问题具体分析。</p>
+<p>顺带一提，由于需要处理YAML文件、Markdown文件，可能还有JS文件（我这个模板里的动效需要手动改JS），所以建议直接全用VSCode作为文本编辑器。</p>
+<h1 id="Step4-图床搭建"><a href="#Step4-图床搭建" class="headerlink" title="Step4: 图床搭建"></a>Step4: 图床搭建</h1><p>图床就是用来在云端存储图片的一项服务。我的建议是用<a target="_blank" rel="noopener" href="https://molunerfinn.com/PicGo/">PicGo</a>作为图床管理工具，管理所有图片的上传和链接。至于用什么图床、怎么配置，我的建议是参考<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html">PicGo官方文档</a>，然后在支持的图床里挑一个。支持的图床种类还是非常多的。</p>
+<h1 id="Step5-评论系统"><a href="#Step5-评论系统" class="headerlink" title="Step5: 评论系统"></a>Step5: 评论系统</h1><p>我使用的评论系统是<a target="_blank" rel="noopener" href="https://waline.js.org/">Waline</a>，支持匿名评论、Markdown语法、LaTeX语法、图片等，自带的表情非常丰富，甚至有贴吧表情🤣同时配置并不复杂，照着官网跑一遍，然后去翻自己用的模板。</p>
+<blockquote>
+<p>悲报：评论系统搭好了半天似乎就开始不定期宕机了，我日</p>
+</blockquote>
+<h1 id="Step6-创作博客"><a href="#Step6-创作博客" class="headerlink" title="Step6: 创作博客"></a>Step6: 创作博客</h1><p>在终端中输入<code>hexo new &lt;标题&gt;</code>创建一篇新的博客。需要注意在终端中输入中文很可能会出现乱码，这是因为你的终端默认使用了GB2312编码，你需要用命令<code>chcp 65001</code>切换为UTF-8就不会出现乱码。但这条命令只会在当前终端生效，如果想一劳永逸，对于Windows Terminal，请使用命令<code>powershell.exe -NoExit chcp 65001</code>。</p>
+<p>然后就可以在博客根目录下的<code>source/_posts</code>文件夹里看到对应标题的<code>.md</code>文件。这就需要大家会写<a target="_blank" rel="noopener" href="https://www.runoob.com/markdown/md-tutorial.html">Markdown</a>了，但这其实很简单，我反正10分钟就速通了。</p>
+<p>此外，About页面、Categories页面和Tags页面的生成请参考自己所用模板的文档，而对博客进行归档需要设置Markdown文件顶部的Front-matter，请参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Hexo官方文档</a>。</p>
+<h1 id="Step7-页面预览"><a href="#Step7-页面预览" class="headerlink" title="Step7: 页面预览"></a>Step7: 页面预览</h1><p>在博客根目录下输入<code>hexo server</code>或者<code>hexo s</code>生成静态文件并在本地启动服务器。如果有报错，顺着报错解决这些问题；如果没有报错，就打开浏览器输入<code>https://localhost:4000/</code>预览页面。此时对文章或者配置进行修改后，只需要保存并刷新页面就可以实时看到效果。</p>
+<h1 id="Step8-部署页面"><a href="#Step8-部署页面" class="headerlink" title="Step8: 部署页面"></a>Step8: 部署页面</h1><p>我选择部署到GitHub Pages，方法就是新建仓库<code>username.github.io</code>然后把页面上传到这个仓库的<code>main</code>分支，其中<code>username</code>就是你的GitHub账号id。具体方法参考<a target="_blank" rel="noopener" href="https://argvchs.github.io/2022/04/17/hexo-blog-4/">这篇文章</a>，一切确认无误后用<code>hexo deploy</code>部署。</p>
+<p>如果你需要部署到其他页面，请参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment">Hexo官方文档</a>或自行查资料。</p>
+<h1 id="Step9-GitHub-Pages加速"><a href="#Step9-GitHub-Pages加速" class="headerlink" title="Step9: GitHub Pages加速"></a>Step9: GitHub Pages加速</h1><p>你可以把你的GitHub Pages部署到Netlify或者Vercel上，它会根据你的提交记录自动同步，据说是能给页面加速。在搭建评论系统Waline的时候我已经用到了Vercel，所以直接试了一下，操作非常简单（参考<a target="_blank" rel="noopener" href="https://vercel.com/docs/concepts/git/vercel-for-github">Vercel官方文档</a>）。然后我关掉clash试图分别从GitHub Pages和Vercel进入我的博客，结果一个都打不开，ping了一下也都ping不通😭</p>
+<p>于是我开始尝试Netlify，据说在大陆的访问速度还可以，能用。但不知道是不是登录时出现了问题，总之用我的GitHub账号会遇到Authentication Error问题，用其他邮箱注册之后账号又会被suspend😭你就说你让不让我用吧，你让不让！</p>
+<p>此外朋友还建议我挂一个Cloudflare Pages或者用jsdelivr，但此时我已经心灰意冷了。</p>
+<p>我的宗旨一直是能用就行嘛，摆了！</p>
+<h1 id="Step10-To-Do-List"><a href="#Step10-To-Do-List" class="headerlink" title="Step10: To-Do List"></a>Step10: To-Do List</h1><p>首先就是这个折磨人的访问速度问题，由于本人对计算机网络一窍不通，我也不知道该怎么继续折腾，是部署到国内的服务器还是用上面提到的方式加速，这么折腾的时间成本略高，总之我摆了。大家有什么好的方法也可以在评论区里交流。</p>
+<p>其次我觉得这个图片多少有点单调了，现在这个主页图片是写死的，我很喜欢这张图，但是看久了多少容易审美疲劳，所以考虑用一些随机图片接口，但是又要折腾了，总之我又摆了。</p>
+<p>写了一晚上就水了这么短短一篇文章，那就写到这里吧。如果我的文章对你能有那么一丢丢帮助，那就是我的幸运！</p>
+
+    </div>
+    
+    
+    
+    
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
+    <div id="comment">
+        <div id="waline-container">
+        </div>
+    </div>
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2023 - 2023 Plasmid&#39;s Blog
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @wzl-plasmid
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> & <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+
+                </div>
+            </div>
+            </transition>
+            <div id="showimg">
+                <img id="showimg-content" alt="showimg">
+            </div>
+        </div>
+        <script src="/js/functions.js"></script>
+<script src="/js/particlex.js"></script>
+
+    
+    
+    
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <script>
+        Waline.init({
+            el: '#waline-container',
+            serverURL: "https://blog-comments-ashy.vercel.app/",
+            commentCount: "true",
+            pageview: "false",
+            emoji: "https://unpkg.com/@waline/emojis@1.0.1/weibo,https://unpkg.com/@waline/emojis@1.0.1/alus,https://unpkg.com/@waline/emojis@1.0.1/bilibili,https://unpkg.com/@waline/emojis@1.0.1/qq,https://unpkg.com/@waline/emojis@1.0.1/tieba,https://unpkg.com/@waline/emojis@1.0.1/tw-emoji".split(','),
+            meta: "nick,mail,link".split(','),
+            requiredMeta: "nick".split(','),
+            lang: "zh-CN",
+            wordLimit: parseInt("0"),
+            pageSize: "10",
+            login: "enable",
+        });
+    </script>
+    
+    
+
+
+    </body>
+</html>
