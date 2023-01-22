@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>简简单单搭个博客：基于Hexo和GitHub Pages | Plasmid&#39;s Blog</title>
+        <title>博客搭建不完全指南：基于Hexo和GitHub Pages | Plasmid&#39;s Blog</title>
         <meta name="author" content="wzl-plasmid">
         <meta name="description" content="">
         <meta name="keywords" content="">
@@ -144,7 +144,7 @@
                 <div id="main">
                     <div class="article">
     <div>
-        <h1>简简单单搭个博客：基于Hexo和GitHub Pages </h1>
+        <h1>博客搭建不完全指南：基于Hexo和GitHub Pages </h1>
     </div>
     <div class="info">
         <span class="date">
@@ -171,14 +171,14 @@
             
             <span class="tag">
                 
-                <a href="/tags/Hexo/" style="color: #ffa2c4">
+                <a href="/tags/Hexo/" style="color: #ff7d73">
                     Hexo
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/GitHub-Pages/" style="color: #00a596">
+                <a href="/tags/GitHub-Pages/" style="color: #ff7d73">
                     GitHub Pages
                 </a>
             </span>
@@ -191,13 +191,14 @@
         <blockquote>
 <p>我们从那时起，便身处迷雾中，完全沦为电波的奴隶。</p>
 </blockquote>
-<p>除夕夜不想看春晚，趁着这个时间打了一个简单的博客，那么第一篇博客就来记录一下搭博客的过程吧。</p>
+<p>除夕夜不想看春晚，趁着这个时间搭了一个简单的博客，那么第一篇博客就来记录一下搭博客的过程吧。</p>
 <p>由于整个过程比较复杂但实在没啥技术含量，这篇文章只是<font color="#66CC99">汇总一下教程文档，记录一下踩坑过程</font>。</p>
 <p>这个博客创建的契机是一次我试图用知乎发一个用Markdown写好的教程，但碰巧我的<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/106057556">Zhihu on VSCode插件</a>寄了，完全登录不上去。而知乎网页端对于导入的Markdown代码支持也是依托答辩，很多样式只能依靠我手动添加，这让几乎每天都在用Markdown的我非常不爽。同时看到过不少同学搭建过自己的博客，上面也有很多高质量的内容（<del>帮我活过了概统考试</del>），于是我也开始想着自己搭一个博客出来。</p>
 <p>其实本人非常懒，不喜欢折腾。于是我对于博客搭建的要求就是<font color="#66CC99">能用就行</font>，不想自己搭服务器买域名之类的，图床也是直接用的GitHub。</p>
 <p>至于GitHub在大陆不稳定的问题🤔无所谓，我一直挂着Clash🤣</p>
 <h1 id="Step0-观前提示"><a href="#Step0-观前提示" class="headerlink" title="Step0: 观前提示"></a>Step0: 观前提示</h1><p>搭建博客看着工程量庞大，但网上已经有详细的文档教程，<font color="#66CC99">完全照着文档和教程跑下来</font>就好，我真的没碰上什么问题。</p>
-<p>唯一一个比较重要的技能可能是需要反复敲命令行，这里再次感叹一下<font color="#66CC99">熟练使用命令行和各种命令行风格工具</font>的重要性😢输入命令行需要终端，最简单的终端是命令提示符，可以在搜索框中搜索cmd或者在文件夹顶部地址栏输入cmd然后按回车，但我一般用Windows Terminal，VSCode集成的也不错。</p>
+<p>唯一一个比较重要的技能可能是需要反复敲命令行，这里再次感叹一下<font color="#66CC99">熟练使用命令行和各种命令行风格工具</font>的重要性😢（<del>虽然我差不多习惯了</del>）</p>
+<p>输入命令行需要终端，最简单的终端是命令提示符，可以在搜索框中搜索cmd或者在文件夹顶部地址栏输入cmd然后按回车，但我一般用Windows Terminal，VSCode集成的也不错。</p>
 <h1 id="Step1-安装Hexo"><a href="#Step1-安装Hexo" class="headerlink" title="Step1: 安装Hexo"></a>Step1: 安装Hexo</h1><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a>是一款快速、简洁、高效的博客框架，可以将Markdown文档非常高效地渲染成网页，也提供了各种风格的模板。看到过不少人在用Hexo，就决定是它了！</p>
 <p>本步骤其实只需要严格按照<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a>跑一遍下来就行了，就是事情稍微多了点（需要先安装Git和Node.js）</p>
 <ul>
@@ -218,7 +219,7 @@
 </ul>
 <p><img src="https://camo.githubusercontent.com/48b250de82787ee8090df0e3a3088e10d09a12b58fe1df55045f2476aca20978/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f666c7569642d6465762f737461746963406d61737465722f6865786f2d7468656d652d666c7569642f73637265656e73686f74732f696e6465782e706e67" alt="Fluid"></p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/ch1ny/kira-hexo/">kira</a>大概是这么多模板里最二次元的一个，文档看起来还行但不算太详细，就放上来骗骗二次元吧🤣（开发者似乎是山东大学的，现在大四，tql）</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ch1ny/kira-hexo/">kira</a>顾名思义，是一款kirakira✨的模板，看得我dokidoki❤（<del>梗小鬼差不多得了</del>）大概是这么多模板里最二次元的一个，文档看起来还行但不算太详细，就放上来骗骗二次元吧🤣（开发者似乎是山东大学的，现在大四，tql）</li>
 </ul>
 <p><img src="https://hexo.kira.host/assets/preview.d0ee2af1.png" alt="kira"></p>
 <ul>
@@ -234,6 +235,9 @@
 <p>悲报：评论系统搭好了半天似乎就开始不定期宕机了，我日</p>
 </blockquote>
 <h1 id="Step6-创作博客"><a href="#Step6-创作博客" class="headerlink" title="Step6: 创作博客"></a>Step6: 创作博客</h1><p>在终端中输入<code>hexo new &lt;标题&gt;</code>创建一篇新的博客。需要注意在终端中输入中文很可能会出现乱码，这是因为你的终端默认使用了GB2312编码，你需要用命令<code>chcp 65001</code>切换为UTF-8就不会出现乱码。但这条命令只会在当前终端生效，如果想一劳永逸，对于Windows Terminal，请使用命令<code>powershell.exe -NoExit chcp 65001</code>。</p>
+<blockquote>
+<p>注意这里的<code>&lt;标题&gt;</code>参数是指<code>.md</code>文件名称和博客url中的部分，所以这个参数我建议用英文。而打开该<code>.md</code>文件后，顶部的Front-matter区域还有一个title参数，这个是在你的博客页面中显示的标题，默认为刚才指定的标题参数，但它是可以修改的。</p>
+</blockquote>
 <p>然后就可以在博客根目录下的<code>source/_posts</code>文件夹里看到对应标题的<code>.md</code>文件。这就需要大家会写<a target="_blank" rel="noopener" href="https://www.runoob.com/markdown/md-tutorial.html">Markdown</a>了，但这其实很简单，我反正10分钟就速通了。</p>
 <p>此外，About页面、Categories页面和Tags页面的生成请参考自己所用模板的文档，而对博客进行归档需要设置Markdown文件顶部的Front-matter，请参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Hexo官方文档</a>。</p>
 <h1 id="Step7-页面预览"><a href="#Step7-页面预览" class="headerlink" title="Step7: 页面预览"></a>Step7: 页面预览</h1><p>在博客根目录下输入<code>hexo server</code>或者<code>hexo s</code>生成静态文件并在本地启动服务器。如果有报错，顺着报错解决这些问题；如果没有报错，就打开浏览器输入<code>https://localhost:4000/</code>预览页面。此时对文章或者配置进行修改后，只需要保存并刷新页面就可以实时看到效果。</p>
