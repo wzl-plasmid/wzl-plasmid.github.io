@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>品鉴一下在线课程#1：MIT Missing Semester【更新中】 | Plasmid&#39;s Blog</title>
+        <meta name="author" content="wzl-plasmid">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="https://avatars.githubusercontent.com/u/97417831?s=400&u=c152956cd924e17d3072f4ae4c80ba0374da8359&v=4">
+        <script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.min.js"></script>
+        <script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+        <canvas
+            id="background"
+            style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:-1"
+        ></canvas>
+        <script src="/js/background.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css">
+        
+        <script src="https://polyfill.io/v3/polyfill.min.js?features="></script>
+        
+        
+        <script src="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.css">
+        
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height: 100vh; width: 100vw; position: fixed; display: flex; z-index: 2147483647; justify-content: space-between; background: #fff; transition: all 0.3s ease-out; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none">
+    <div style="position: fixed; height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center">
+        <div id="loadcontent" style="width: 50vmin; height: 50vmin; padding: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: solid 10px #a3ddfb; text-align: center">
+            <div>
+                <h2>LOADING...</h2>
+                <p style="word-break: keep-all">加载过慢请开启缓存（浏览器默认开启）</p>
+                <div>
+                    <img alt="loading" src="/images/loading.gif" style="height: 50px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="layout">
+            <transition name="into">
+            <div v-show="showpage" style="display: -not-none">
+                <div id="menushow">
+                    <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Plasmid's Blog</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Plasmid's Blog</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                </div>
+                <div id="main">
+                    <div class="article">
+    <div>
+        <h1>品鉴一下在线课程#1：MIT Missing Semester【更新中】 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/1/28
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                学习笔记
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E8%AF%BE%E7%A8%8B%E5%93%81%E9%89%B4/" style="color: #03a9f4">
+                    课程品鉴
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Missing-Semester/" style="color: #ff7d73">
+                    Missing Semester
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" style="color: #ff7d73">
+                    命令行工具
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p><img src="https://raw.githubusercontent.com/wzl-plasmid/images/main/103663830_p0.png" alt="cover"></p>
+<blockquote>
+<p>本文是对<a target="_blank" rel="noopener" href="https://csdiy.wiki/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/MIT-Missing-Semester/">MIT Missing Semester</a>的<font color="#FF0033">点评</font>而非笔记。课程笔记建议直接参考<a target="_blank" rel="noopener" href="https://missing.csail.mit.edu/">官方给出的讲义</a>及其<a target="_blank" rel="noopener" href="https://missing-semester-cn.github.io/">中文版</a>，笔者自己整理的笔记不会超出官方讲义的知识点范围。</p>
+<p>课程介绍参见<a target="_blank" rel="noopener" href="https://csdiy.wiki/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/MIT-Missing-Semester/">CS自学指南</a>，视频参见<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1x7411H7wa">B站搬运</a>或者<a target="_blank" rel="noopener" href="https://space.bilibili.com/1010983811">B站字幕组</a>。</p>
+</blockquote>
+<h1 id="本系列前言"><a href="#本系列前言" class="headerlink" title="本系列前言"></a>本系列前言</h1><p>随着某<a target="_blank" rel="noopener" href="https://csdiy.wiki/">CS自学指南</a>的流行，大家很容易了解计算机学科的各种分支领域，以及该领域较为优秀的课程，笔者仍在初学阶段，是这些指南的使用者、受益者，对这些课程的理解不可能超过这些指南本身。但这些资料对<font color="#66CC99">学习体验和学习效果</font>的介绍比较宽泛，而且全部刷完显然是不适合UCAS寄系壬的学习状态的。我希望从更细节的角度对<a target="_blank" rel="noopener" href="https://csdiy.wiki/">CS自学指南</a>等资料做一点补充，同时督促自己刷完自己想看的课，自己挖的坑自己填完（</p>
+<p>老实说我也不太希望我的卷王同学们看到我写的博客（不然就被卷死力），但是我寄吧谁啊，谁TM稀罕我这博客啊🤣我写的文章都没人赞的，谁是小丑不用我多说了吧🤣👉</p>
+<p>总之这只能作为一个参考，如果你希望现学现用而不知道该看哪个章节，我希望这篇文章可以帮到你。你甚至可以把它看成作为一个吐槽节目，大家把我当小丑看就行🤡</p>
+<h1 id="为什么要学"><a href="#为什么要学" class="headerlink" title="为什么要学"></a>为什么要学</h1><p>每一个翻开csdiy.wiki的人都会看到MIT出品的The Missing Semester of Your CS Education课程，这门课是否推荐，不用我多说了。我在大一下暑假就开始看起来了，但由于课程中第2讲的信息量和主讲老师的口音对我的冲击实在太大，我只挑了一些自己感兴趣的章节刷完了（分别是第1、2、3、6讲）。同时我平时没有太多的锻炼机会，平时用git也只会用到那几个最基本的命令而不会分支，因此我认为这是远远不够的。</p>
+<p>最近在导师的安利下开始着手某项目的学习（是什么项目我不说），用了一节课告诉你为什么要学Linux，还用了一整个实验要求你熟悉Linux下的各种工具，从命令行、vim到gdb全都要学，而我对这些都非常不熟悉。</p>
+<p>那怎么办？学！学tama的！</p>
+<p>此外，得益于笔记软件的发展，我逐渐找到了在电脑端记笔记的乐趣。之前我只会用Typora或者VSCode写Markdown。虽然我可以在电脑端记笔记的时候形成一个顺手的的工作流，但原教旨主义的Markdown功能比较有限，写出来的笔记在美观性和知识点间联系性等方面都非常拉胯。因此我强烈安利支持<font color="#66CC99">双向链接</font>功能的笔记软件，比如Obsidian和Logseq，这个寒假稍微学了一点，真的很大程度上提高了我的笔记效率和使用率，让我的笔记更好查找、更有层次关系，写完了可以被真正利用起来而不是吃灰，甚至可以说让我逐渐爱上了记笔记。</p>
+<h1 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h1><ul>
+<li><a href="#%E7%AC%AC1%E8%AE%B2-%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88%E4%B8%8Eshell">第1讲 课程概览与Shell</a></li>
+<li><a href="#%E7%AC%AC2%E8%AE%B2-shell%E5%B7%A5%E5%85%B7%E5%92%8C%E8%84%9A%E6%9C%AC">第2讲 Shell工具和脚本</a></li>
+<li><a href="#%E7%AC%AC3%E8%AE%B2-%E7%BC%96%E8%BE%91%E5%99%A8vim">第3讲 编辑器（Vim）</a></li>
+</ul>
+<p>主讲老师有三位：Anish、Jon和Jose。</p>
+<blockquote>
+<p>⚠<font color="#FF0033"><b>警告</b></font>⚠</p>
+<p>据字幕组反映，Jose是西班牙人，<font color="#FF0033">口音非常严重</font>，严重影响了课程观感。Jose出现在了<font color="#FF0033">第2讲、第5讲、第7讲和第10讲</font>，建议做好提前预警，建议选择汉化组提供的中文字幕版本，或者自己看讲义。</p>
+<p>剩下两位老师的英语都很标准，讲课也很棒，没有雷。</p>
+</blockquote>
+<h1 id="第1讲-课程概览与Shell"><a href="#第1讲-课程概览与Shell" class="headerlink" title="第1讲 课程概览与Shell"></a>第1讲 课程概览与Shell</h1><blockquote>
+<p>豆瓣评分9.0</p>
+<p>神中神，非常适合入门，除了需要适应英文课程的快节奏。</p>
+</blockquote>
+<p>本节课主要介绍了Shell中的常用命令行工具，基于最基本的bash介绍最最基础的命令行知识。主要讲了<code>cd</code>、<code>ls</code>、<code>rm</code>这些最最常用的命令、输入输出流重定向和管道，此外也介绍了root权限的获取方式和<code>sudo</code>的含义，补充了<code>pwd</code>、绝对路径和相对路径等概念。同时课堂的操作演示性很强，<font color="#66CC99">不建议只看文档</font>。</p>
+<p>如果你是第一次接触英文的课程视频，那你很可能手忙脚乱不知所措。视频节奏事实上非常快，我看过一遍的都觉得快，如果你觉得快那大概率不是我的问题。但是如果手忙脚乱不知道如何应对的话，这大概是学习的工作流问题，慢慢适应一段时间，就能找到适合自己的打开方式了。我想说的是，不要放弃，<font color="#66CC99">这集视频的门槛真的很低了，作为shell的入门真的很合适了</font>。不相信的同学请自己去看著名教程<a target="_blank" rel="noopener" href="https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md">The Art of Command Line</a>，说是需要一定基础才能看懂，但你这基础也太高了吧，我都没看懂过_(:з」∠)_总之完全不推荐给初学者。</p>
+<h1 id="第2讲-Shell工具和脚本"><a href="#第2讲-Shell工具和脚本" class="headerlink" title="第2讲 Shell工具和脚本"></a>第2讲 Shell工具和脚本</h1><blockquote>
+<p>⚠<font color="#FF0033">西班牙口音警告！</font>非战斗人员请立即撤离！</p>
+<p>豆瓣评分6.9</p>
+<p>本身知识点非常散，而且助教的口音实在太难顶了，感觉不如直接看讲义。</p>
+</blockquote>
+<p>本节课前半部分介绍了在Shell中写脚本以实现复杂控制流的方式，包括传参方式、<code>$0</code>等特殊变量的含义、Error Code等；后半部分的知识点就非常散了，比如通配符、查看帮助的方式、<code>find</code>工具和<code>grep</code>工具及其替代品、Shell中的历史记录查找方式等。</p>
+<p>由于后半部分的知识点多而且杂，很多地方都是一笔带过，给我的感觉就是只告诉你了有这么个东西，但看完了视频，你大概率还是不知道怎么用。其实这也是一个两难的问题，比如<code>find</code>和<code>grep</code>这些命令在传递参数时本来就很复杂，很多时候需要大家自己RTFM。但是这段内容给我的感觉是，我最基本的用法都没掌握，在上一章中这是很容易做到的。</p>
+<p>因此感觉你仍然需要自学，需要自己RTFM。由于讲义很详细而且课堂的演示对你理解这些内容帮助不大，我建议你直接看讲义。</p>
+<p>此外网上有很多相关的资源，比如<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/264346586">写Shell脚本的教程</a>。</p>
+<h1 id="第3讲-编辑器（Vim）"><a href="#第3讲-编辑器（Vim）" class="headerlink" title="第3讲 编辑器（Vim）"></a>第3讲 编辑器（Vim）</h1><p>（todo）</p>
+
+    </div>
+    
+    
+    
+    
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
+    <div id="comment">
+        <div id="waline-container">
+        </div>
+    </div>
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2023 - 2023 Plasmid&#39;s Blog
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @wzl-plasmid
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> & <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+
+                </div>
+            </div>
+            </transition>
+            <div id="showimg">
+                <img id="showimg-content" alt="showimg">
+            </div>
+        </div>
+        <script src="/js/functions.js"></script>
+<script src="/js/particlex.js"></script>
+
+    
+    
+    
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <script>
+        Waline.init({
+            el: '#waline-container',
+            serverURL: "https://blog-comments-ashy.vercel.app/",
+            commentCount: "true",
+            pageview: "false",
+            emoji: "https://unpkg.com/@waline/emojis@1.0.1/weibo,https://unpkg.com/@waline/emojis@1.0.1/alus,https://unpkg.com/@waline/emojis@1.0.1/bilibili,https://unpkg.com/@waline/emojis@1.0.1/qq,https://unpkg.com/@waline/emojis@1.0.1/tieba,https://unpkg.com/@waline/emojis@1.0.1/tw-emoji".split(','),
+            meta: "nick,mail,link".split(','),
+            requiredMeta: "nick".split(','),
+            lang: "zh-CN",
+            wordLimit: parseInt("0"),
+            pageSize: "10",
+            login: "enable",
+        });
+    </script>
+    
+    
+
+
+    </body>
+</html>
