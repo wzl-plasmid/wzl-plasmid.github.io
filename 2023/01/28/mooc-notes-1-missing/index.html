@@ -171,21 +171,21 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E8%AF%BE%E7%A8%8B%E5%93%81%E9%89%B4/" style="color: #00bcd4">
+                <a href="/tags/%E8%AF%BE%E7%A8%8B%E5%93%81%E9%89%B4/" style="color: #ff7d73">
                     课程品鉴
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/Missing-Semester/" style="color: #03a9f4">
+                <a href="/tags/Missing-Semester/" style="color: #ff7d73">
                     Missing Semester
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" style="color: #ffa2c4">
+                <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" style="color: #ff7d73">
                     命令行工具
                 </a>
             </span>
@@ -211,6 +211,7 @@
 <li><a href="#%E7%AC%AC1%E8%AE%B2-%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88%E4%B8%8EShell">第1讲 课程概览与Shell</a></li>
 <li><a href="#%E7%AC%AC2%E8%AE%B2-Shell%E5%B7%A5%E5%85%B7%E5%92%8C%E8%84%9A%E6%9C%AC">第2讲 Shell工具和脚本</a></li>
 <li><a href="#%E7%AC%AC3%E8%AE%B2-%E7%BC%96%E8%BE%91%E5%99%A8%EF%BC%88Vim%EF%BC%89">第3讲 编辑器（Vim）</a></li>
+<li><a href="#%E7%AC%AC4%E8%AE%B2-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86">第4讲 数据处理</a></li>
 </ul>
 <p>视频总长度10小时，但是如果想配置一下这些原始的工具并且真正把需要讲的内容用熟练是需要时间的，这个时间<font color="#66CC99">上不封顶</font>。因此我看这个课的速度非常慢（也可能是因为现在是寒假吧😢）</p>
 <p>主讲老师有三位：Anish、Jon和Jose。</p>
@@ -236,11 +237,18 @@
 <p>此外网上有很多相关的资源，比如<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/264346586">写Shell脚本的教程</a>。</p>
 <h1 id="第3讲-编辑器（Vim）"><a href="#第3讲-编辑器（Vim）" class="headerlink" title="第3讲 编辑器（Vim）"></a>第3讲 编辑器（Vim）</h1><blockquote>
 <p>豆瓣评分9.5</p>
-<p>非常适合Vim的入门，当然不想学Vim的同学可以略过</p>
+<p>非常适合Vim的入门，当然不想学Vim的同学可以略过。</p>
 </blockquote>
 <p>由于某项目的教程里直接让我用学Vim，实在没办法，就试图入坑一下Vim吧。这集视频介绍了Vim背后的设计理念、各种模式的含义和跳转方式、各类快捷键命令的功能以及在编辑文本时的应用等。</p>
 <p>这节在半年前不懂地看过一遍，事后也只记住了<code>hjkl</code>和<code>:q</code>或者<code>:wq</code>这种最基本的操作。这次看还是有不少收获的，至少课上讲过的命令都可以弄懂。</p>
 <p>Vim的官方文档看起来挺简陋的，因此我也不知道上课讲的命令是否完全，但是对我来说很够用了，也够我消化好一阵子了。此外实战的演示挺清楚的，至少关掉视频我能回忆起很多内容。当然看视频本身是不够的，下面就需要大家自己配置Vim、反复练习了，这个就靠大家自己了。</p>
+<h1 id="第4讲-数据处理"><a href="#第4讲-数据处理" class="headerlink" title="第4讲 数据处理"></a>第4讲 数据处理</h1><blockquote>
+<p>豆瓣评分7.5</p>
+<p>这讲的实用性我表示一定的怀疑。这讲内容非常之多，尤其是涉及了一大堆编程性质较强的工具。很多工具同样是点到为止，或者是只给了一些复杂的样例，我是没心思看。</p>
+</blockquote>
+<p>上节课末尾提到过第4讲和第6讲换了，感觉这就很没道理。这讲的内容是数据处理，感觉已经是相对小众的需求了。而第6讲是Git，Git的重要性不用我多说了吧（</p>
+<p>这节课介绍了各种和数据处理相关的工具，比如<code>grep</code>、<code>sed</code>、<code>sort</code>等。个人感觉这节最重要的内容是<font color="#66CC99">正则表达式</font>，但是似乎讲的不是很系统。推荐一下<a target="_blank" rel="noopener" href="https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md">这个教程</a>以及<a target="_blank" rel="noopener" href="https://regex101.com/">一个在线解释正则表达式的网站</a>，至少我就是靠这两份资料入门的。由于在iGEM讲课时需要讲一遍正则表达式，而为了备课我自己再学了一遍，故正则表达式部分我也没仔细听。</p>
+<p>最后是教学案例的问题。本节课使用了<code>ssh</code>和<code>journalctl</code>命令，但是试了一下在我的Windows和WSL终端上都不管用。因此数据整理需要用到的数据源似乎比较难找（<del>像极了在打美赛的你</del>），不过似乎可以看一下课后练习中的数据。</p>
 
     </div>
     
